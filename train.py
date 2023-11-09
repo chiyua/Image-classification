@@ -36,7 +36,7 @@ def create_model():
         Dense(10, activation='softmax')
     ])
 
-    optimizer = SGD(lr=0.01, momentum=0.9)
+    optimizer = SGD(learning_rate=0.01, momentum=0.9)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
     
     return model
@@ -46,9 +46,8 @@ def train():
     train_images, test_images = normalize(train_images, test_images)
 
     model = create_model()
-    model.fit(train_images, train_labels, epochs=50, batch_size=500, verbose=0)
-    model.save('models/current-model.h5')
-
+    model.fit(train_images, train_labels, epochs=20, batch_size=500, verbose=0)
+    model.save('C:/Users/Vicki/Documents/Git/Image-classification/model/my_model_two.keras')
     print('Training complete.')
 
 def test():

@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 from os import path
 
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
@@ -18,7 +19,7 @@ def load_image(filename):
 
 def predict():
 	try:
-		image_path = sys.argv[1]
+		image_path = 'C:/Users/Vicki/Desktop/airplane.jpg'
 	except:
 		print('No path was passed in the argument.')
 		exit()
@@ -28,12 +29,14 @@ def predict():
 		exit()
 
 	image = load_image(image_path)
-	model = load_model('./models/current.h5')
-	result = model.predict_classes(image)
-
+	model = load_model('C:/Users/Vicki/Documents/Git/Image-classification/model/my_model_two.keras')
+	result = model.predict(image)
+	# Get the predicted class (assuming a classification task)
+	predicted_class = np.argmax(result[0])
+	print("Predicted class:", predicted_class)
 	plt.imshow(mpimg.imread(image_path))
 	plt.axis('off')
-	plt.title('Predicted label: {}'.format(labels[result[0]]))
+	plt.title('Predicted label: {}'.format(labels[predicted_class]))
 	plt.show()
  
 predict()
