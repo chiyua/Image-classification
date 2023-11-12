@@ -54,8 +54,8 @@ def test():
     train_images, train_labels, test_images,test_labels = load_dataset()
     train_images, test_images = normalize(train_images, test_images)
 
-    model = load_model('models/current.h5')
+    model = load_model('model/my_model_two.keras')
     metrics = model.evaluate(test_images, test_labels, verbose=0, return_dict=True)
     print('Accuracy: {accuracy}\nLoss: {loss}'.format(**metrics))
 
-train()
+test()
