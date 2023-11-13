@@ -47,7 +47,7 @@ def train():
 
     model = create_model()
     model.fit(train_images, train_labels, epochs=20, batch_size=500, verbose=0)
-    model.save('C:/Users/Vicki/Documents/Git/Image-classification/model/my_model_two.keras')
+    model.save('model/my_model_two.keras')
     print('Training complete.')
 
 def test():
@@ -58,4 +58,5 @@ def test():
     metrics = model.evaluate(test_images, test_labels, verbose=0, return_dict=True)
     print('Accuracy: {accuracy}\nLoss: {loss}'.format(**metrics))
 
-test()
+train() //train the model
+test() //test the model

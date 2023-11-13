@@ -19,7 +19,7 @@ def load_image(filename):
 
 def predict():
 	try:
-		image_path = 'C:/Users/Vicki/Desktop/airplane.jpg'
+		image_path = 'airplane.jpg'
 	except:
 		print('No path was passed in the argument.')
 		exit()
@@ -29,7 +29,7 @@ def predict():
 		exit()
 
 	image = load_image(image_path)
-	model = load_model('C:/Users/Vicki/Documents/Git/Image-classification/model/my_model_two.keras')
+	model = load_model('model/my_model_two.keras')
 	result = model.predict(image)
 	# Get the predicted class (assuming a classification task)
 	predicted_class = np.argmax(result[0])
